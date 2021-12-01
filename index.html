@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Boolzapp</title>
+		<!-- Fontawesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- /Fontawesome -->
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+		<!-- /Google Fonts -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<div id="root" class="container">
+			<div class="col-left">
+				<div class="account-info">
+					<div class="avatar">
+						<img class="avatar-img" :src="`./img/avatar${user.avatar}.jpg`" alt="Samuele">
+						<span>{{user.name}}</span>
+					</div>
+					<div class="buttons">
+
+					</div>
+				</div>
+				<div class="notifications"></div>
+				<div class="search-bar">
+					<input type="text" placeholder="Cerca o inizia una nuova chat">
+				</div>
+				<div class="contacts">
+					<ul>
+						<li class="contact" v-for="contact in contacts">
+							<img class="avatar-img" :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+							<span class="contact-name">{{contact.name}}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-right">
+				<div class="account-info">
+					<div class="avatar">
+						<img class="avatar-img" :src="`./img/avatar${user.avatar}.jpg`" alt="Samuele">
+						<span>{{user.name}}</span>
+					</div>
+					<div class="buttons">
+
+					</div>
+				</div>
+				<div class="messages-container">
+					<div class="message">
+						<div class="message-text sent">
+							<div class="message-content">Hai portato a spasso il cane?</div>
+							<div class="message-date">10/01/2020 15:30:55</div>
+						</div>
+					</div>
+					<div class="message">
+						<div class="message-text received">
+							<div class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa accusantium sequi quia reiciendis, ea vero natus reprehenderit quisquam eveniet unde nulla tempora nihil laudantium praesentium doloremque obcaecati rerum officiis iste!</div>
+							<div class="message-date">10/01/2020 15:30:55</div>
+						</div>
+					</div>
+					<div class="message">
+						<div class="message-text sent">
+							<div class="message-content">Ok</div>
+							<div class="message-date">10/01/2020 15:30:55</div>
+						</div>
+					</div>
+				</div>
+				<div class="send-message">
+
+				</div>
+			</div>
+		</div>
+
+		<!-- development version, includes helpful console warnings -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
