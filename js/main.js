@@ -85,8 +85,12 @@ const app = new Vue({
 		user: {
 			name: 'Samuele Madrigali',
 			avatar: '_3'
-		}
+		},
+		currentContact: 0
 	},
 	methods: {
+		changeContact: function(i) {
+			this.currentContact = i;
+		}
 	}
 });

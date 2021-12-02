@@ -54,16 +54,27 @@ body {
 .search-bar {
 	padding: 5px 10px;
 }
+.search-bar input {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #F5F5F5;
+}
 .contacts {
 	flex-grow: 1;
-	padding: 5px 10px;
+	padding: 5px 0px;
 	overflow-y: scroll;
 }
 .contacts ul {
 	list-style: none;
 }
+.contacts li {
+	cursor: pointer;
+}
+.contacts li:not(:last-child) {
+	border-bottom: 1px solid #F5F5F5;
+}
 .contact {
-	padding: 5px 0px;
+	padding: 5px 10px;
 	display: flex;
 }
 .contact.active {
@@ -82,6 +93,7 @@ body {
 	flex-direction: column;
 	width: 65%;
 	height: 100%;
+	border-left: 1px solid #D6D6D6;
 }
 .messages-container {
 	flex-grow: 1;
@@ -97,6 +109,7 @@ body {
 /* Message */
 .message {
 	display: flex;
+	margin-bottom: 20px;
 }
 .message-text {
 	max-width: 50%;

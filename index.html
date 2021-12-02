@@ -34,7 +34,7 @@
 				</div>
 				<div class="contacts">
 					<ul>
-						<li class="contact" v-for="contact in contacts">
+						<li class="contact" v-for="(contact, index) in contacts" @click="changeContact(index)" :class="index == currentContact ? 'active' : null">
 							<img class="avatar-img" :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
 							<span class="contact-name">{{contact.name}}</span>
 						</li>
@@ -44,30 +44,18 @@
 			<div class="col-right">
 				<div class="account-info">
 					<div class="avatar">
-						<img class="avatar-img" :src="`./img/avatar${user.avatar}.jpg`" alt="Samuele">
-						<span>{{user.name}}</span>
+						<img class="avatar-img" :src="`./img/avatar${contacts[currentContact].avatar}.jpg`" :alt="contacts[currentContact].name">
+						<span>{{contacts[currentContact].name}}</span>
 					</div>
 					<div class="buttons">
 
 					</div>
 				</div>
 				<div class="messages-container">
-					<div class="message">
-						<div class="message-text sent">
-							<div class="message-content">Hai portato a spasso il cane?</div>
-							<div class="message-date">10/01/2020 15:30:55</div>
-						</div>
-					</div>
-					<div class="message">
-						<div class="message-text received">
-							<div class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa accusantium sequi quia reiciendis, ea vero natus reprehenderit quisquam eveniet unde nulla tempora nihil laudantium praesentium doloremque obcaecati rerum officiis iste!</div>
-							<div class="message-date">10/01/2020 15:30:55</div>
-						</div>
-					</div>
-					<div class="message">
-						<div class="message-text sent">
-							<div class="message-content">Ok</div>
-							<div class="message-date">10/01/2020 15:30:55</div>
+					<div class="message" v-for="mess in contacts[currentContact].messages">
+						<div class="message-text" :class="mess.status">
+							<div class="message-content">{{mess.message}}</div>
+							<div class="message-date">{{mess.date}}</div>
 						</div>
 					</div>
 				</div>
