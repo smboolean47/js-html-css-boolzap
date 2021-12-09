@@ -30,11 +30,11 @@
 				</div>
 				<div class="notifications"></div>
 				<div class="search-bar">
-					<input type="text" placeholder="Cerca o inizia una nuova chat">
+					<input type="text" placeholder="Cerca o inizia una nuova chat" v-model="inputSearch" @keyup="filterContacts()">
 				</div>
 				<div class="contacts">
 					<ul>
-						<li class="contact" v-for="(contact, index) in contacts" @click="changeContact(index)" :class="index == currentContact ? 'active' : null">
+						<li class="contact" v-for="(contact, index) in contacts" @click="changeContact(index)" :class="index == currentContact ? 'active' : null" v-if="contact.visible">
 							<img class="avatar-img" :src="`./img/avatar${contact.avatar}.jpg`" :alt="contact.name">
 							<span class="contact-name">{{contact.name}}</span>
 						</li>
@@ -60,13 +60,14 @@
 					</div>
 				</div>
 				<div class="send-message">
-
+					<input type="text" v-model="inputMessage" placeholder="Scrivi il tuo messaggio" @keyup.enter="addMessage()">
 				</div>
 			</div>
 		</div>
 
 		<!-- development version, includes helpful console warnings -->
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

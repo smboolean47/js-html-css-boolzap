@@ -54,7 +54,7 @@ body {
 .search-bar {
 	padding: 5px 10px;
 }
-.search-bar input {
+input {
 	width: 100%;
 	padding: 8px;
 	border: 1px solid #F5F5F5;

@@ -86,11 +86,48 @@ const app = new Vue({
 			name: 'Samuele Madrigali',
 			avatar: '_3'
 		},
-		currentContact: 0
+		currentContact: 0,
+		inputMessage: '',
+		inputSearch: ''
 	},
 	methods: {
 		changeContact: function(i) {
 			this.currentContact = i;
+		},
+		addMessage: function() {
+			this.contacts[this.currentContact].messages.push({
+				date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+				message: this.inputMessage,
+				status: 'sent'
+			});
+			 
+			this.inputMessage = "";
+
+			// risposta automatica dopo 1 sec
+			// const self = this;
+
+			setTimeout(() => {
+				console.log(this);
+
+				this.contacts[this.currentContact].messages.push({
+					date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+					message: "Ok",
+					status: 'received'
+				});
+			}, 1000);
+		},
+		filterContacts: function() {
+			this.contacts.forEach(element => {
+				// if( element.name.toLowerCase().includes(this.inputSearch.toLowerCase()) ) {
+				// 	element.visible = true;
+				// } else {
+				// 	element.visible = false;
+				// }
+
+				element.visible = element.name.toLowerCase().includes(this.inputSearch.toLowerCase()); // true o false
+			});
 		}
 	}
 });
+
+// console.log(dayjs().format('DD/MM/YYYY HH:mm:ss'));
